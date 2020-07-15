@@ -10,10 +10,16 @@ import UIKit
 
 class historyTableViewCell: UITableViewCell {
 
-    @IBOutlet var Q_A_table: UITableView!
+
     @IBOutlet var gameNo: UILabel!
     @IBOutlet var dateTime: UILabel!
     @IBOutlet var name: UILabel!
+    @IBOutlet var question: UILabel!
+    @IBOutlet var answer: UILabel!
+    @IBOutlet var question2: UILabel!
+    @IBOutlet var answer2: UILabel!
+    
+    
  
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,15 +34,4 @@ class historyTableViewCell: UITableViewCell {
 
 }
 
-
-extension historyTableViewCell {
-    
-    
-    func setTableViewDelegateDataSource<D:UITableViewDelegate & UITableViewDataSource>(_ dataSourceDelegate: D, forRow row: Int) {
-        Q_A_table.delegate = dataSourceDelegate
-        Q_A_table.dataSource = dataSourceDelegate
-    }
-    
-    
-}
 

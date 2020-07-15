@@ -44,10 +44,8 @@ struct questionModel {
 
         if questionNumber + 1 < quiz.count {
             questionNumber += 1
-            print("ha idhar")
         } else {
             questionNumber = 0
-            print("ha idhar2")
         }
     }
     

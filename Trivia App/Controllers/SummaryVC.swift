@@ -52,8 +52,6 @@ class SummaryVC: UIViewController {
             
           
         }
-        
-//        print("arrayQues",arrayQues,arrayAns)
        
         
     }

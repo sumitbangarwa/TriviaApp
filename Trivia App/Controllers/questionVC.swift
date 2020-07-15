@@ -24,10 +24,7 @@ class questionVC: UIViewController {
     var Question = String()
     var AnsSelected = String()
     
-    var question: [String:Any] = [:]
-    
     var answerDict = [String:Any]()
-    
     var ansArray = Array<Any>()
     
     var touchcount: Int = 0
@@ -50,7 +47,7 @@ class questionVC: UIViewController {
 
     @IBAction func answerBtnPressed(_ sender: UIButton) {
         // Highlight the current selected
-        sender.isHighlighted = false
+        sender.isHighlighted = true
         
         updateSelection()
         
@@ -61,7 +58,11 @@ class questionVC: UIViewController {
     }
     
     @IBAction func nextBTN(_ sender: Any) {
-
+        
+        if AnsSelected.isEmpty {
+            showToast(controller: self, message: "Please Select an Answer", seconds: 1)
+        }
+        else {
         touchcount += 1
         
         updateSelection()
@@ -70,7 +71,8 @@ class questionVC: UIViewController {
         answerDict["Question"] = Question
         answerDict["Answer"] = AnsSelected
         ansArray.append(answerDict)
-        print("ARRAY", ansArray)
+            print("ANSWERDICT")
+            
         
 
           if touchcount >= 2 {
@@ -79,8 +81,10 @@ class questionVC: UIViewController {
                 let summaryV = self.storyboard?.instantiateViewController(identifier: "SummaryVC") as! SummaryVC
                        self.navigationController?.pushViewController(summaryV, animated: true)
            }
+            
+            AnsSelected.removeAll()
         
-       
+        }
     }
     
     //Updating the Ui after Each Question
